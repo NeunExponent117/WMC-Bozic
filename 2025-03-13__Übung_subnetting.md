@@ -72,3 +72,6 @@ Klasse: Netzwerkanteil: Hostanteil:
 A      8 Bit           24 Bit
 B      16 Bit          16 Bit
 C      24 Bit          8 Bit
+
+Quelle:
+https://www.calculator.net/ip-subnet-calculator.html
