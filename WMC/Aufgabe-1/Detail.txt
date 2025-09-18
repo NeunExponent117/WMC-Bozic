@@ -1,0 +1,9 @@
+https://www.w3schools.com/tags/tag_details.asp
+
+Ich habe mir für die erste Aufgabe das Detail-Tag ausgesucht, 
+da ich dieses bisher noch nicht kennenlernte und noch nie verwendete.
+
+Dieses Tag kann man als eine Art Accordion ansehen. 
+
+Dieses Tag erschafft, wie man erwarten könnte, einen bereich in dem man 
+weitere Informationen auf und zu Klappen kann, wenn man diese benötigt.
