@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bozic – FromSoftware Fanpage</title>
+
+    <!-- Standard-Theme -->
+    <link rel="stylesheet" href="../Aufgabe-2-Bozic/css/color.css">
+    <!-- Weißes alt theme -->
+    <!-- <link rel="stylesheet" href="../Aufgabe-2-Bozic/css/white.css"> -->
+</head>
+
+<body>
+    <!-- Navigation -->
+    <header>
+        <img src="img/Header.png" alt="FromSoftware Logo" width="300">
+        <nav>
+            <ul>
+                <li><a href="#section-1">Über FromSoftware</a></li>
+                <li><a href="#section-2">Spiele</a></li>
+                <li><a href="#section-3">Community</a></li>
+                <li><a href="#kontakt">Kontakt</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="layout">    
+        <!-- Seitenleiste -->
+        <aside>
+            <h2>Kurze Infos</h2>
+            <p>FromSoftware ist ein japanischer Entwickler, bekannt für Spiele wie Dark Souls, Bloodborne und Elden Ring.</p>
+            <img src="../Aufgabe-2-Bozic/img/pic4.png" alt="Dark Souls Artwork" width="300">
+            <img src="../Aufgabe-2-Bozic/img/pic5.png" alt="Dark Souls Artwork" width="300">
+            <img src="../Aufgabe-2-Bozic/img/pic2.png" alt="Dark Souls Artwork" width="300">
+            <img src="../Aufgabe-2-Bozic/img/pic3.png" alt="Dark Souls Artwork" width="300">
+            <img src="../Aufgabe-2-Bozic/img/pic.png" alt="Dark Souls Artwork" width="300">
+            <img src="../Aufgabe-2-Bozic/img/pic6.png" alt="Dark Souls Artwork" width="300">
+        </aside>
+
+        <!-- Hauptinhalt -->
+        <main>
+            <section id="section-1">
+                <h2>Über FromSoftware</h2>
+                <p>Hier kommt ein einführender Text über die Geschichte und Bedeutung von FromSoftware.</p>
+            </section>
+
+            <section id="section-2">
+                <h2>Bekannte Spiele</h2>
+
+                <!-- Tabelle mit mindestens 10 Zeilen -->
+                <table>
+                    <caption>Bekannte FromSoftware-Spiele</caption>
+                    <thead>
+                        <tr>
+                            <th>Titel</th>
+                            <th>Jahr</th>
+                            <th>Genre</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>King's Field</td><td>1994</td><td>RPG</td></tr>
+                        <tr><td>Demon's Souls</td><td>2009</td><td>Action RPG</td></tr>
+                        <tr><td>Dark Souls</td><td>2011</td><td>Action RPG</td></tr>
+                        <tr><td>Dark Souls II</td><td>2014</td><td>Action RPG</td></tr>
+                        <tr><td>Bloodborne</td><td>2015</td><td>Action RPG</td></tr>
+                        <tr><td>Dark Souls III</td><td>2016</td><td>Action RPG</td></tr>
+                        <tr><td>Sekiro</td><td>2019</td><td>Action Adventure</td></tr>
+                        <tr><td>Elden Ring</td><td>2022</td><td>Open World RPG</td></tr>
+                        <tr><td>Armored Core VI</td><td>2023</td><td>Mech Action</td></tr>
+                        <tr><td>Elden Ring Nightreign</td><td>2025</td><td>Rougue Light</td></tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section id="section-3">
+                <h2>Community</h2>
+                <p>FromSoftware hat eine weltweite Fangemeinde. Diskussionsforen, Fan-Art und Speedruns sind ein wichtiger Teil der Kultur.</p>
+                <img src="../Aufgabe-2-Bozic/img/community.png" alt="Community Bild">
+            </section>
+        </main>
+    </div>
+    <!-- Formular -->
+    <section id="kontakt">
+        <h2>Bei Fragen oder Beschwerden finden sie hier das Kontaktformular:</h2>
+        <form action="#" method="post">
+            <label for="name">Name:</label><br>
+            <input type="text" id="name" name="name" required><br><br>
+
+            <label for="email">E-Mail:</label><br>
+            <input type="email" id="email" name="email" required><br><br>
+
+            <label for="nachricht">Nachricht:</label><br>
+            <textarea id="nachricht" name="nachricht" rows="4" required></textarea><br><br>
+
+            <button type="submit">Absenden</button>
+        </form>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 FromSoftware Fanpage – erstellt von Bozic</p>
+    </footer>
+</body>
+</html>

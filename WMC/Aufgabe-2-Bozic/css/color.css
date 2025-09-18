@@ -1,0 +1,119 @@
+body {
+    background-color: #121212;
+    color: #e0e0e0;
+    font-family: Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column; /* Header oben darunter flex-container */
+}
+
+/* Layout für aside und main */
+.layout {
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+}
+
+/* Header und Nav */
+header {
+    background: linear-gradient(90deg, #1a1a1a, #333);
+    padding: 1rem;
+    text-align: center;
+    border-bottom: 2px solid #ff3b3b;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0 0 0;
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+}
+
+nav a {
+    text-decoration: none;
+    color: #4da6ff;
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: #ff3b3b;
+}
+
+aside {
+    background-color: #1e1e1e;
+    padding: 1rem;
+    border-right: 2px solid #333;
+    flex: 0 0 250px;
+    min-height: 100vh;
+}
+
+/* Main rechts von Aside */
+main {
+    flex: 1;
+    padding: 2rem;
+}
+
+section {
+    margin: 2rem 0;
+}
+
+/* Tabelle */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+}
+
+thead {
+    background-color: #222;
+    color: #ff3b3b;
+}
+
+th, td {
+    border: 1px solid #444;
+    padding: 0.5rem;
+    text-align: left;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #1e1e1e;
+}
+
+/* Formular */
+form {
+    margin-top: 1rem;
+    padding: 1rem;
+    background: #1a1a1a;
+    border: 1px solid #444;
+}
+
+input, textarea, button {
+    width: 100%;
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+    border: 1px solid #666;
+    background: #222;
+    color: #fff;
+}
+
+button {
+    background-color: #4da6ff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #ff3b3b;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 1rem;
+    background-color: #1a1a1a;
+    border-top: 2px solid #ff3b3b;
+}
