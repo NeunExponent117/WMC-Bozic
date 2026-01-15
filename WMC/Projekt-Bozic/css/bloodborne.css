@@ -1,0 +1,202 @@
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root { /* CSS-Variablen für Farbschema */
+            --accent: #9b59ff;
+            --accent-glow: rgba(155, 89, 255, 0.4);
+            --navbar-accent: #4a0404;
+            --navbar-accent-glow: rgba(74, 4, 4, 0.25);
+            --bg-deep: #08050a;
+            --bg-card: #110d16;
+            --border: #2a1f35;
+        }
+
+        body {
+            background-color: #050505;
+            color: #a0a0a0;
+            font-family: 'Playfair Display', serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, .nav-links a { 
+            font-family: 'Cinzel', serif; 
+            text-transform: uppercase; 
+            letter-spacing: 2px;
+        }
+
+        /* Navbar */
+        header.main-nav { 
+            position: sticky; top: 0; z-index: 1000; 
+            background: rgba(8, 5, 10, 0.95); 
+            border-bottom: 2px solid var(--navbar-accent, var(--accent)); 
+            height: 70px;
+            display: flex;
+            align-items: center;
+        }
+        .navbar { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 2rem; display: flex; justify-content: space-between; align-items: center; }
+        .nav-links { list-style: none; display: flex; gap: 1.5rem; }
+        .nav-links a { color: #fff; text-decoration: none; font-size: 0.8rem; transition: 0.3s; }
+        .nav-links a:hover { color: var(--navbar-accent, var(--accent)); text-shadow: 0 0 10px var(--navbar-accent-glow, var(--accent-glow)); }
+
+        /* Burger menu */
+        #menu-toggle { display: none; }
+        .burger { display: none; flex-direction: column; cursor: pointer; gap: 5px; }
+        .burger span { width: 25px; height: 2px; background: var(--navbar-accent, #fff); display:block; }
+
+        @media (max-width: 1100px) {
+            .burger { display: flex; }
+            .nav-links {
+                position: absolute; top: 70px; left: 0; width: 100%;
+                background: rgba(8,5,10,0.95); flex-direction: column;
+                display: none; padding: 2rem; border-bottom: 2px solid var(--navbar-accent, var(--accent));
+                align-items: center;
+            }
+            #menu-toggle:checked ~ .nav-links { display: flex; }
+        }
+
+        /* Aktive links für die Navbar */
+        .nav-links a.active { color: var(--navbar-accent, var(--accent)); text-shadow: 0 0 10px var(--navbar-accent-glow, var(--accent-glow)); } /* aktive links hervorheben )--accent für farbverwealtung statt hexcodes*/
+
+        /* Hero */
+        header.hero {
+            position: relative;
+            overflow: hidden; /* damit das hintergrundbild nicht über den bereich hinausgeht */
+            height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.2), #050505), 
+                        url('https://images.alphacoders.com/605/605584.jpg') center/cover fixed;
+            text-align: center;
+            border-bottom: 1px solid #111;
+        }
+        /* dekoratives Hintergrundbild mit blur & fadeout nach unten hin */
+        header.hero::before { /* befor is ein inhalt vor dem element */
+            content: ""; /* pseudo-element für das hintergrundbild damit man before überhaupt verwenden kann */
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 70%; /* decorative area for the logo */
+            background: url('../img/Bloodborne/bloodborne.jpg') center top / 80% auto no-repeat;
+            opacity: 0.25;
+            filter: blur(3px) saturate(0.85);
+            transform: scale(1.02);
+
+            /* gradient-maske: oben sichtbar bis unten transparent — erzeugt fadeout-effekt */
+            -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 80%);
+            mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 80%);
+
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        header.hero h1 {
+            position: relative; z-index: 1; /* vor dem hintergrundbild */
+            font-size: 5rem;
+            color: #e0e0e0;
+            letter-spacing: 15px; /* abstand zwischen den buchstaben */
+            text-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+        }
+
+        .blood-text {
+            position: relative; z-index: 1; /* vor dem hintergrundbild */
+            color: #4a0404;
+            font-weight: bold;
+            letter-spacing: 5px; /* abstand zwischen den buchstaben */
+            text-transform: uppercase; /* nur großbuchstaben bei dem text (bissi unnötig hätte man auch eif selber machen können) */
+            margin-bottom: 10px;
+        }
+
+        /* layout /content */
+        .container {
+            position: relative; z-index: 2;
+            max-width: 1000px;
+            margin: -60px auto 60px auto;
+            padding: 20px;
+        }
+
+        section {
+            background: rgba(15, 15, 15, 0.98);
+            padding: 50px;
+            margin-bottom: 40px;
+            border: 1px solid #1a1a1a;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.8);
+            transition: 0.5s; /* transition für hover effekt, weil er 0.5s braucht um  das umzusetzen wenn man drauf geht */
+        }
+
+        section:hover { border-color: #4a0404; } /* hover effekt für jeden bereich (rote umrandung) */
+
+        h2 {
+            color: #7f8c8d;
+            border-bottom: 1px solid #4a0404;
+            display: inline-block;
+            margin-bottom: 25px;
+            font-size: 2rem;
+        }
+
+        /* yt-vid */
+        .trailer {
+            margin: 30px 0;
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 */
+            height: 0;
+            border: 1px solid #4a0404;
+            box-shadow: 0 0 20px rgba(74, 4, 4, 0.2);
+        }
+
+        .trailer iframe {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+        }
+
+        /* elemente */
+        .stat-box {
+            display: flex;
+            justify-content: space-between;
+            background: #0a0a0a;
+            padding: 15px 25px;
+            margin: 12px 0;
+            border-left: 4px solid #4a0404;
+            transition: 0.3s;
+        }
+
+        .stat-box:hover { background: #111; transform: translateX(10px); } /* hover das element oder so wird 10px nach rechts geschoben deswegen x */
+
+        .stat-box span { color: #5dade2; font-weight: bold; }
+
+        /* umrandung entfernen */
+        .hero, .container, section, .trailer-wrap, .stat-box, .content-box, .trailer-wrap iframe, .trailer-wrap img {
+            border-radius: 0 !important;
+            box-shadow: none !important;
+            outline: none !important;
+            background-clip: padding-box !important;
+        }
+
+        /* footer */
+        footer {
+            text-align: center;
+            padding: 100px 20px;
+            background: #000;
+            color: #444;
+            border-top: 1px solid #111;
+        }
+
+        .insight-text {
+            display: flex;
+            align-items: center; /* vertikal zentriert */
+            justify-content: center; /* horizontal zentriert */
+            gap: 0.45rem;
+            margin-top: 20px;
+            font-style: italic;
+            color: #5dade2;
+            font-size: 1.1rem;
+            line-height: 1; /* vertikal einheitlich */
+        }
+
+        /* inline icon that replaces the emoji — slightly larger */
+        .insight-text img.insight-icon {
+            width: 1.5em;
+            height: auto;
+            vertical-align: middle;
+            margin: 0;
+            filter: drop-shadow(0 0 6px rgba(90, 20, 20, 0.12)); /* kleine rote umrandung beim text */
+        }

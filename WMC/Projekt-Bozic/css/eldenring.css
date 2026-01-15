@@ -1,0 +1,127 @@
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --accent: #9b59ff;
+            --accent-glow: rgba(155, 89, 255, 0.4);
+            --navbar-accent: #ffd700;
+            --navbar-accent-glow: rgba(255, 215, 0, 0.25);
+            --bg-deep: #08050a;
+            --bg-card: #110d16;
+            --border: #2a1f35;
+        }
+
+        body {
+            background-color: #05070a;
+            color: #d0d0d0;
+            font-family: 'EB Garamond', serif;
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, .nav-links a { 
+            font-family: 'Cinzel', serif; 
+            text-transform: uppercase; 
+            letter-spacing: 2px;
+        }
+
+        /* Navbar */
+        header.main-nav { 
+            position: sticky; top: 0; z-index: 1000; 
+            background: rgba(8, 5, 10, 0.95); 
+            border-bottom: 2px solid var(--navbar-accent, var(--accent)); 
+            height: 70px;
+            display: flex;
+            align-items: center;
+        }
+        .navbar { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 2rem; display: flex; justify-content: space-between; align-items: center; }
+        .nav-links { list-style: none; display: flex; gap: 1.5rem; }
+        .nav-links a { color: #fff; text-decoration: none; font-size: 0.8rem; transition: 0.3s; }
+        .nav-links a:hover { color: var(--navbar-accent, var(--accent)); text-shadow: 0 0 10px var(--navbar-accent-glow, var(--accent-glow)); }
+
+        /* Burger menu */
+        #menu-toggle { display: none; }
+        .burger { display: none; flex-direction: column; cursor: pointer; gap: 5px; }
+        .burger span { width: 25px; height: 2px; background: var(--navbar-accent, #fff); display:block; }
+
+        @media (max-width: 1100px) {
+            .burger { display: flex; }
+            .nav-links {
+                position: absolute; top: 70px; left: 0; width: 100%;
+                background: rgba(8,5,10,0.95); flex-direction: column;
+                display: none; padding: 2rem; border-bottom: 2px solid var(--navbar-accent, var(--accent));
+                align-items: center;
+            }
+            #menu-toggle:checked ~ .nav-links { display: flex; }
+        }
+
+        /* Aktive links für die Navbar */
+        .nav-links a.active { color: var(--navbar-accent, var(--accent)); text-shadow: 0 0 10px var(--navbar-accent-glow, var(--accent-glow)); }
+
+        /* Elden Ring */
+        .elden-section {
+            background: linear-gradient(rgba(0,0,0,0.4), #0d0d0d), 
+                        url('https://images.alphacoders.com/116/1164998.jpg') center/cover fixed;
+            padding: 100px 20px; text-align: center; border-bottom: 5px solid #a07a38;
+        }
+
+        .elden-section h1 { font-size: 5rem; color: #ffcc00; text-shadow: 0 0 20px rgba(0,0,0,0.8); }
+
+        .content-box {
+            max-width: 1100px; margin: 40px auto; background: rgba(15, 12, 10, 0.9);
+            padding: 60px; border: 1px solid #7c622a; box-shadow: 0 0 40px rgba(0,0,0,0.8); text-align: left;
+        }
+
+        .content-box h2 { color: #ffd700; text-align: center; margin-bottom: 30px; font-size: 2.5rem; }
+
+        /* yt-vid */
+        .trailer {
+            margin: 40px 0; position: relative; padding-bottom: 56.25%; height: 0;
+            border: 1px solid #a07a38; box-shadow: 0 0 20px rgba(160, 122, 56, 0.2);
+        }
+        .trailer iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+
+        .grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px; margin-top: 40px;
+        }
+
+        .card {
+            background: rgba(20, 20, 20, 0.9); padding: 30px; border: 1px solid #5a4b2a; transition: 0.3s;
+        }
+        .card:hover { border-color: #ffcc00; transform: translateY(-5px); }
+        .card h3 { color: #ffcc00; margin-bottom: 10px; font-size: 1.4rem; }
+
+        /* Nightreign */
+        .nightreign-section {
+            background: linear-gradient(rgba(5, 10, 20, 0.8), #05070a), 
+                        url('https://images.alphacoders.com/129/1298894.png') center/cover fixed;
+            padding: 100px 20px; text-align: center; border-top: 5px solid #00ced1;
+        }
+
+        .nightreign-section h1 { font-size: 4.5rem; color: #00ced1; text-shadow: 0 0 25px rgba(0, 206, 209, 0.5); }
+
+        .nightreign-box {
+            max-width: 1000px; margin: 40px auto; background: rgba(5, 15, 25, 0.95);
+            padding: 60px; border: 1px solid #008b8b; box-shadow: 0 0 50px rgba(0,0,0,0.9); text-align: left;
+        }
+
+        .nightreign-box h2 { color: #40e0d0; text-align: center; margin-bottom: 30px; }
+
+        .night-list { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .night-list li {
+            padding: 20px; background: rgba(0, 206, 209, 0.05); border-left: 4px solid #008b8b;
+        }
+        .night-list strong { color: #00ced1; display: block; margin-bottom: 5px; font-size: 1.1rem; }
+
+        @media (max-width: 800px) { .night-list { grid-template-columns: 1fr; } }
+
+        /* umrandung entfernt */
+        .hero, .nightreign-box, .content-box, .grid, .card, section, .trailer-wrap, .trailer-wrap iframe, .card img {
+            border-radius: 0 !important;
+            box-shadow: none !important;
+            outline: none !important;
+            background-clip: padding-box !important;
+        }
+
+        /* footer */
+        footer { text-align: center; padding: 100px 20px; color: #444; border-top: 1px solid #111; }

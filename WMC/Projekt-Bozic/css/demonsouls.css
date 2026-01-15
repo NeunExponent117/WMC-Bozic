@@ -1,0 +1,181 @@
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --bg-deep: #08050a;
+            --bg-dark: #020405;
+            --bg-card: #110d16;
+            --accent: #85c1e9;
+            --accent-blue: #85c1e9;
+            --accent-glow: rgba(133, 193, 233, 0.3);
+            --navbar-accent: var(--accent-blue);
+            --navbar-accent-glow: var(--accent-glow);
+            --border: #2a1f35;
+            --border-steel: #34495e;
+            --text-silver: #bdc3c7;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-silver);
+            font-family: 'Crimson Text', serif;
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, .nav-links a { 
+            font-family: 'Cinzel', serif; 
+            text-transform: uppercase; 
+            letter-spacing: 2px;
+        }
+
+        /* Navbar */
+        header.main-nav { 
+            position: sticky; top: 0; z-index: 1000; 
+            background: rgba(8, 5, 10, 0.95); 
+            border-bottom: 2px solid var(--navbar-accent, var(--accent)); 
+            height: 70px;
+            display: flex;
+            align-items: center;
+        }
+        .navbar { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 2rem; display: flex; justify-content: space-between; align-items: center; }
+        .nav-links { list-style: none; display: flex; gap: 1.5rem; }
+        .nav-links a { color: #fff; text-decoration: none; font-size: 0.8rem; transition: 0.3s; }
+        .nav-links a:hover { color: var(--navbar-accent, var(--accent)); text-shadow: 0 0 10px var(--navbar-accent-glow, var(--accent-glow)); }
+
+        /* Burger menu */
+        #menu-toggle { display: none; }
+        .burger { display: none; flex-direction: column; cursor: pointer; gap: 5px; }
+        .burger span { width: 25px; height: 2px; background: var(--navbar-accent, #fff); display:block; }
+
+        @media (max-width: 1100px) {
+            .burger { display: flex; }
+            .nav-links {
+                position: absolute; top: 70px; left: 0; width: 100%;
+                background: rgba(8,5,10,0.95); flex-direction: column;
+                display: none; padding: 2rem; border-bottom: 2px solid var(--navbar-accent, var(--accent));
+                align-items: center;
+            }
+            #menu-toggle:checked ~ .nav-links { display: flex; }
+        }
+
+        /* Aktive links für die Navbar */
+        .nav-links a.active { color: var(--navbar-accent, var(--accent)); text-shadow: 0 0 10px var(--navbar-accent-glow, var(--accent-glow)); }
+
+        /* Hero */
+        .nexus-hero {
+            position: relative;
+            overflow: hidden;
+            height: 75vh;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.3), var(--bg-dark)), 
+                        url('https://images.alphacoders.com/108/1085731.jpg') center/cover no-repeat fixed;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            border-bottom: 1px solid var(--border-steel);
+        }
+        .nexus-hero::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 70%; 
+            background: url('../img/DemonSouls/demonssouls.jpg') center top / 80% auto no-repeat;
+            opacity: 0.25;
+            filter: blur(3px) saturate(0.85);
+            transform: scale(1.02);
+            -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 80%);
+            mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 80%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .nexus-hero h1 { 
+            position: relative; z-index: 1; font-size: 4.5rem; 
+            color: #f0f3f4; 
+            text-shadow: 0 0 25px var(--accent-glow); 
+        }
+
+        .soul-glow {
+            color: var(--accent-blue);
+            font-size: 1rem;
+            letter-spacing: 8px;
+            margin-bottom: 15px;
+        }
+
+        .container { max-width: 1100px; margin: 0 auto; padding: 80px 20px; }
+
+        .intro-box {
+            text-align: center;
+            border: none;
+            padding: 50px;
+            background: rgba(10, 15, 25, 0.8);
+            margin-bottom: 80px;
+            box-shadow: none;
+        }
+
+        .archstone-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        .archstone-card {
+            background: #0a0c0e;
+            border: 1px solid #1c2833;
+            padding: 35px;
+            transition: 0.4s;
+        }
+
+        .archstone-card:hover {
+            border-color: var(--accent-blue);
+            transform: translateY(-8px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+        }
+
+        .archstone-card h3 {
+            color: var(--accent-blue);
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            border-bottom: 1px solid var(--border-steel);
+            padding-bottom: 10px;
+        }
+
+        .archstone-card ul { list-style: none; margin-top: 20px; }
+        .archstone-card li { padding: 6px 0; color: #888; font-size: 0.95rem; }
+        .archstone-card li strong { color: var(--text-silver); border-right: 1px solid #333; padding-right: 10px; margin-right: 10px; }
+
+        /* yt-vid */
+        .trailer-section {
+            margin: 100px 0;
+            text-align: center;
+        }
+
+        .trailer {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            border: 1px solid var(--border-steel);
+            box-shadow: 0 0 40px rgba(0,0,0,1);
+            margin-top: 30px;
+        }
+
+        .trailer iframe {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+        }
+
+        /* umrandung entfernt */
+        .hero, .container, .game-entry, .archstone-card, section, .video-wrap, .content-box, .archstone-card img, .video-wrap iframe {
+            border-radius: 0 !important;
+            box-shadow: none !important;
+            outline: none !important;
+            background-clip: padding-box !important;
+        }
+
+        /* footer */
+        footer {
+            text-align: center;
+            padding: 100px;
+            color: #444;
+            border-top: 1px solid #111;
+        }
