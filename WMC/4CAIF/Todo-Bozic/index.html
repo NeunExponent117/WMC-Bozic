@@ -1,0 +1,63 @@
+<!doctype html>
+<html class="no-js" lang="">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Todo App</title>
+
+    <link rel="stylesheet" href="styles.css" />
+    <meta name="description" content="" />
+
+    <script type="module" defer src="app.js"></script>
+  </head>
+
+  <body>
+    <h1>Todo List</h1>
+
+    <input id="todo-input" type="text" placeholder="What needs to be done" />
+    <label class="priority-input" for="todo-priority">
+      Priorität
+      <select id="todo-priority">
+        <option value="1">1 - Sehr hoch</option>
+        <option value="2">2 - Hoch</option>
+        <option value="3" selected>3 - Mittel</option>
+        <option value="4">4 - Niedrig</option>
+        <option value="5">5 - Sehr niedrig</option>
+      </select>
+    </label>
+    <button id="todo-add" type="button">Add</button>
+
+    <div class="filter-bar">
+      <label class="priority-input" for="todo-filter-text">
+        Suche
+        <input
+          id="todo-filter-text"
+          type="text"
+          placeholder="Todo filtern"
+        />
+      </label>
+      <label class="priority-input" for="todo-filter-priority">
+        Filter Priorität
+        <select id="todo-filter-priority">
+          <option value="all" selected>Alle</option>
+          <option value="1">1 - Sehr hoch</option>
+          <option value="2">2 - Hoch</option>
+          <option value="3">3 - Mittel</option>
+          <option value="4">4 - Niedrig</option>
+          <option value="5">5 - Sehr niedrig</option>
+        </select>
+      </label>
+    </div>
+
+    <h2>Pending Tasks</h2>
+    <ul id="todo-list">
+      <!-- dynamic content goes here -->
+    </ul>
+
+    <h2>Done</h2>
+    <ul id="todo-list-done">
+      <!-- dynamic content goes here -->
+    </ul>
+  </body>
+</html>
