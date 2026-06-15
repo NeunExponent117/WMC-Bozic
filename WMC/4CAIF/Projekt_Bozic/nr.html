@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Nightreign Planer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="main.html">Startseite</a></li>
+            <li><a href="info.html">Nightreign Info</a></li>
+            <li><a href="nr.html">Nightreign Planer</a></li>
+            <li><a href="er.html">Elden Ring Planer</a></li>
+        </ul>
+    </nav>
+
+    <div class="content-wrapper er-fullscreen">
+        <div class="er-ui-container">
+            
+            <div class="er-col left-col">
+                <h3 class="col-title">Nightreign Build</h3>
+                
+                <div class="equipment-inventory-grid">
+                    <h4 class="sub-title">Nachtwandler (Charakter)</h4>
+                    <div class="equip-row">
+                        <select id="nr-char" class="equip-select nr-equip-select" style="width: 100%;" onchange="equipNRItem(this, 'character')">
+                            <option value="">-- Charakter wählen --</option>
+                        </select>
+                    </div>
+
+                    <hr class="er-divider">
+
+                    <h4 class="sub-title">Bewaffnung</h4>
+                    <div class="equip-row">
+                        <select id="nr-wpn1" class="equip-select nr-equip-select" style="width: 50%;" onchange="equipNRItem(this, 'weapon')"><option value="">Waffe 1</option></select>
+                        <select id="nr-wpn2" class="equip-select nr-equip-select" style="width: 50%;" onchange="equipNRItem(this, 'weapon')"><option value="">Waffe 2</option></select>
+                    </div>
+
+                    <hr class="er-divider">
+
+                    <h4 class="sub-title">Relikte</h4>
+                    <div class="equip-row">
+                        <select id="nr-rel1" class="equip-select nr-equip-select" onchange="equipNRItem(this, 'relic')"><option value="">Relikt 1</option></select>
+                        <select id="nr-rel2" class="equip-select nr-equip-select" onchange="equipNRItem(this, 'relic')"><option value="">Relikt 2</option></select>
+                        <select id="nr-rel3" class="equip-select nr-equip-select" onchange="equipNRItem(this, 'relic')"><option value="">Relikt 3</option></select>
+                    </div>
+
+                    <hr class="er-divider">
+
+                    <h4 class="sub-title" style="color: darkred;">Aktuelles Jagd-Ziel</h4>
+                    <div class="equip-row">
+                        <select id="nr-boss" class="equip-select nr-equip-select" style="width: 100%; border-color: darkred;" onchange="equipNRItem(this, 'boss')">
+                            <option value="">-- Boss wählen --</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <button class="gold-btn save-btn" onclick="saveBuild('nightreign')">Nightreign Build Herunterladen</button>
+            </div>
+
+            <div class="er-col mid-col">
+                <h3 class="col-title" id="nr-detail-name">Wähle etwas aus</h3>
+                <p id="nr-detail-type" class="text-muted">-</p>
+                
+                <div class="stats-group mt-2">
+                    <p id="nr-detail-desc" style="color: #fff; line-height: 1.5; font-size: 0.95rem;">
+                        Hier erscheinen Details zu Charakteren, Waffeneffekten, Relikten oder den Schwächen der Nachtfürsten.
+                    </p>
+                </div>
+
+                <div id="nr-boss-weakness-box" style="display: none; margin-top: 20px; padding: 15px; border: 1px solid darkred; background: rgba(139, 0, 0, 0.1);">
+                    <h4 style="color: #ff4c4c; margin-top: 0;">Bekannte Schwächen</h4>
+                    <p id="nr-boss-weakness" style="color: #fff; font-weight: bold;"></p>
+                </div>
+            </div>
+
+            <div class="er-col right-col">
+                <h3 class="col-title">Charakter Attribute</h3>
+                
+                <div class="char-attributes mt-2">
+                    <p>Kraft <span id="nr-stat-vig" class="stat-val">-</span></p>
+                    <p>Geist <span id="nr-stat-mind" class="stat-val">-</span></p>
+                    <p>Kondition <span id="nr-stat-end" class="stat-val">-</span></p>
+                    <p>Stärke <span id="nr-stat-str" class="stat-val">-</span></p>
+                    <p>Geschick <span id="nr-stat-dex" class="stat-val">-</span></p>
+                    <p>Weisheit <span id="nr-stat-int" class="stat-val">-</span></p>
+                    <p>Glaube <span id="nr-stat-fai" class="stat-val">-</span></p>
+                    <p>Arkanenergie <span id="nr-stat-arc" class="stat-val">-</span></p>
+                </div>
+
+                <hr class="er-divider">
+
+                <div class="char-derived">
+                    <p style="color: var(--border-gold);">Einzigartige passive Fähigkeit:</p>
+                    <p id="nr-stat-passive" style="color: #fff; font-size: 0.85rem; line-height: 1.4;">-</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

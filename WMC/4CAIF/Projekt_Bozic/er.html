@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Elden Ring Planer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="main.html">Startseite</a></li>
+            <li><a href="info.html">Nightreign Info</a></li>
+            <li><a href="nr.html">Nightreign Planer</a></li>
+            <li><a href="er.html">Elden Ring Planer</a></li>
+        </ul>
+    </nav>
+
+    <div class="content-wrapper er-fullscreen">
+        <div class="er-ui-container">
+            <div class="er-col left-col">
+                <h3 class="col-title">Ausrüstung</h3>
+                
+                <div class="equipment-inventory-grid">
+                    <div class="equip-row">
+                        <select id="rh1" class="equip-select wpn-select" onchange="equipItem(this, 'weapon')"><option value="">R. Hand 1</option></select>
+                        <select id="rh2" class="equip-select wpn-select" onchange="equipItem(this, 'weapon')"><option value="">R. Hand 2</option></select>
+                        <select id="rh3" class="equip-select wpn-select" onchange="equipItem(this, 'weapon')"><option value="">R. Hand 3</option></select>
+                        <select id="ar1" class="equip-select ammo-select" onchange="equipItem(this, 'ammo')"><option value="">Pfeile 1</option></select>
+                        <select id="ar2" class="equip-select ammo-select" onchange="equipItem(this, 'ammo')"><option value="">Pfeile 2</option></select>
+                    </div>
+                    <div class="equip-row">
+                        <select id="lh1" class="equip-select wpn-select" onchange="equipItem(this, 'weapon')"><option value="">L. Hand 1</option></select>
+                        <select id="lh2" class="equip-select wpn-select" onchange="equipItem(this, 'weapon')"><option value="">L. Hand 2</option></select>
+                        <select id="lh3" class="equip-select wpn-select" onchange="equipItem(this, 'weapon')"><option value="">L. Hand 3</option></select>
+                        <select id="bo1" class="equip-select ammo-select" onchange="equipItem(this, 'ammo')"><option value="">Bolzen 1</option></select>
+                        <select id="bo2" class="equip-select ammo-select" onchange="equipItem(this, 'ammo')"><option value="">Bolzen 2</option></select>
+                    </div>
+                    
+                    <hr class="er-divider">
+
+                    <div class="equip-row armor-row">
+                        <select id="head-armor" class="equip-select arm-select head-select" onchange="equipItem(this, 'armor')"><option value="">Kopf</option></select>
+                        <select id="chest-armor" class="equip-select arm-select chest-select" onchange="equipItem(this, 'armor')"><option value="">Brust</option></select>
+                        <select id="arms-armor" class="equip-select arm-select arms-select" onchange="equipItem(this, 'armor')"><option value="">Arme</option></select>
+                        <select id="legs-armor" class="equip-select arm-select legs-select" onchange="equipItem(this, 'armor')"><option value="">Beine</option></select>
+                    </div>
+
+                    <hr class="er-divider">
+
+                    <div class="equip-row talisman-row">
+                        <select id="tal1" class="equip-select tali-select" onchange="equipItem(this, 'talisman')"><option value="">Talisman 1</option></select>
+                        <select id="tal2" class="equip-select tali-select" onchange="equipItem(this, 'talisman')"><option value="">Talisman 2</option></select>
+                        <select id="tal3" class="equip-select tali-select" onchange="equipItem(this, 'talisman')"><option value="">Talisman 3</option></select>
+                        <select id="tal4" class="equip-select tali-select" onchange="equipItem(this, 'talisman')"><option value="">Talisman 4</option></select>
+                    </div>
+
+                    <hr class="er-divider">
+
+                    <h4 class="sub-title">Wundersame Arznei</h4>
+                    <div class="equip-row physick-row">
+                        <select id="tear1" class="equip-select tear-select" onchange="equipItem(this, 'tear')"><option value="">Kristallträne 1</option></select>
+                        <select id="tear2" class="equip-select tear-select" onchange="equipItem(this, 'tear')"><option value="">Kristallträne 2</option></select>
+                    </div>
+                </div>
+                <button class="gold-btn save-btn" onclick="saveBuild('eldenring')">Build Speichern</button>
+            </div>
+
+            <div class="er-col mid-col" id="item-details-pane">
+                <h3 class="col-title" id="detail-name">Wähle ein Item</h3>
+                <p id="detail-type" class="text-muted">-</p>
+                
+                <div class="stats-group">
+                    <p>Gewicht: <span id="detail-weight">0.0</span></p>
+                    <p id="tear-effect-text" style="color: var(--border-gold); font-size: 0.8rem; display: none;"></p>
+                </div>
+
+                <div class="detail-split">
+                    <div class="split-left">
+                        <h4>Angriffskraft</h4>
+                        <p>Physisch <span id="atk-phys" class="stat-val">0</span></p>
+                        <p>Magie <span id="atk-mag" class="stat-val">0</span></p>
+                        <p>Feuer <span id="atk-fire" class="stat-val">0</span></p>
+                        <p>Blitz <span id="atk-light" class="stat-val">0</span></p>
+                        <p>Heilig <span id="atk-holy" class="stat-val">0</span></p>
+                        <p>Kritisch <span id="atk-crit" class="stat-val">100</span></p>
+                    </div>
+                    <div class="split-right">
+                        <h4>Schadensnegierung</h4>
+                        <p>Physisch <span id="def-phys" class="stat-val">0.0</span></p>
+                        <p>Magie <span id="def-mag" class="stat-val">0.0</span></p>
+                        <p>Feuer <span id="def-fire" class="stat-val">0.0</span></p>
+                        <p>Blitz <span id="def-light" class="stat-val">0.0</span></p>
+                        <p>Heilig <span id="def-holy" class="stat-val">0.0</span></p>
+                    </div>
+                </div>
+
+                <div class="detail-split mt-2">
+                    <div class="split-left">
+                        <h4>Attributsskalierung</h4>
+                        <p>Str: <span id="scale-str" class="stat-val">-</span> | Dex: <span id="scale-dex" class="stat-val">-</span></p>
+                        <p>Int: <span id="scale-int" class="stat-val">-</span> | Fai: <span id="scale-fai" class="stat-val">-</span></p>
+                        <p>Arc: <span id="scale-arc" class="stat-val">-</span></p>
+                    </div>
+                    <div class="split-right">
+                        <h4>Vorraussetzungen</h4>
+                        <p>Str: <span id="req-str" class="stat-val">0</span> | Dex: <span id="req-dex" class="stat-val">0</span></p>
+                        <p>Int: <span id="req-int" class="stat-val">0</span> | Fai: <span id="req-fai" class="stat-val">0</span></p>
+                        <p>Arc: <span id="req-arc" class="stat-val">0</span></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="er-col right-col">
+                <h3 class="col-title">Charakter Status</h3>
+                <div class="char-header"><p>Level <span id="char-level" class="stat-val">10</span></p></div>
+
+                <div class="char-attributes">
+                    <p>Kraft <input type="number" id="attr-vig" value="10" min="1" max="99" oninput="calculateStats()"></p>
+                    <p>Geist <input type="number" id="attr-mind" value="10" min="1" max="99" oninput="calculateStats()"></p>
+                    <p>Kondition <input type="number" id="attr-end" value="10" min="1" max="99" oninput="calculateStats()"></p>
+                    <p>Stärke <input type="number" id="attr-str" value="10" min="1" max="99" oninput="calculateStats()"></p>
+                    <p>Geschick <input type="number" id="attr-dex" value="10" min="1" max="99" oninput="calculateStats()"></p>
+                    <p>Weisheit <input type="number" id="attr-int" value="10" min="1" max="99" oninput="calculateStats()"></p>
+                    <p>Glaube <input type="number" id="attr-fai" value="10" min="1" max="99" oninput="calculateStats()"></p>
+                    <p>Arkanenergie <input type="number" id="attr-arc" value="10" min="1" max="99" oninput="calculateStats()"></p>
+                </div>
+
+                <hr class="er-divider">
+
+                <div class="char-derived">
+                    <p>HP <span class="stat-val"><span id="stat-hp">414</span></span></p>
+                    <p>FP <span class="stat-val"><span id="stat-fp">78</span></span></p>
+                    <p>Ausdauer <span class="stat-val"><span id="stat-stam">96</span></span></p>
+                    <br>
+                    <p>Ausrüstungslast <span class="stat-val"><span id="stat-equip-current">0.0</span> / <span id="stat-equip-max">45.0</span></span></p>
+                    <p class="text-right text-muted" id="stat-roll">Mittlere Last</p>
+                    <br>
+                    <p>Gleichgewicht (Poise) <span class="stat-val" id="stat-poise">0</span></p>
+                    <p>Entdeckung <span class="stat-val" id="stat-discovery">110.0</span></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
